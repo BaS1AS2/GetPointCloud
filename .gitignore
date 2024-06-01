@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+*.conf
+*.txt
+ui_*.h

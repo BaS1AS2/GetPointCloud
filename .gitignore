@@ -34,3 +34,9 @@
 *.conf
 *.txt
 ui_*.h
+/debug
+/release
+Make*
+*.user
+mocinclude.opt
+.qmake.stash

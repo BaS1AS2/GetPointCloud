@@ -64,13 +64,13 @@ CONFIG(debug, debug|release){
 }
 
 
-#CONFIG(debug, debug|release){
-#    INCLUDEPATH += $$quote(D:/ProgramData/vtk_8.2.0_debug/include/vtk-8.2)
-#    LIBS +=  $$quote(D:/ProgramData/vtk_8.2.0_debug/lib/vtk*.lib)
-#} else {
-#    INCLUDEPATH += $$quote(D:/ProgramData/vtk_8.2.0_release/include/vtk-8.2)
-#    LIBS +=  $$quote(D:/ProgramData/vtk_8.2.0_release/lib/vtk*.lib)
-#}
+CONFIG(debug, debug|release){
+    INCLUDEPATH += $$quote(D:/ProgramData/vtk_8.2.0_debug/include/vtk-8.2)
+    LIBS +=  $$quote(D:/ProgramData/vtk_8.2.0_debug/lib/vtk*.lib)
+} else {
+    INCLUDEPATH += $$quote(D:/ProgramData/vtk_8.2.0_release/include/vtk-8.2)
+    LIBS +=  $$quote(D:/ProgramData/vtk_8.2.0_release/lib/vtk*.lib)
+}
 
 
 INCLUDEPATH += D:\PCL1.9.1\3rdParty\OpenNI2\Include\

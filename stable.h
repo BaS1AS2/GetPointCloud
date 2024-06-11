@@ -12,6 +12,7 @@
 #include <vtkRenderWindow.h>
 
 #include <QDebug>
+#include <QDir>
 #include <QElapsedTimer>
 #include <QMainWindow>
 #include <QTimer>

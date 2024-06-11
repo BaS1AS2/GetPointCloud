@@ -3,8 +3,8 @@
 #include "move_control/move_control.h"
 #include "ui_mainwindow.h"
 
-#pragma comment(lib, "./lib/zauxdll.lib")
-#pragma comment(lib, "./lib/zmotion.lib")
+#pragma comment(lib, "D:/BaiduSyncdisk/Pot/GetPointCloud/lib/zauxdll.lib")
+#pragma comment(lib, "D:/BaiduSyncdisk/Pot/GetPointCloud/lib/zmotion.lib")
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
@@ -256,11 +256,11 @@ void MainWindow::on_get_centerline_clicked() {
         timer.start();
 
         // 灰度重心法（原本的）
-        ImageProcessing::CenterLineHorizontal(num, correct, dst, Pt);  // 提取中心线
+        //        ImageProcessing::CenterLineHorizontal(num, correct, dst, Pt);  // 提取中心线
 
         // 法向质心法
-        //        NormalCentroid n;
-        //        n.getCenterLine(num, correct, dst, Pt);
+        NormalCentroid n;
+        n.getCenterLine(num, correct, dst, Pt);
 
         // steger算法
         //        Steger s;
@@ -463,11 +463,11 @@ void image_processing_rotation_mutiThread(int *n, int *image_nums, std::vector<i
 void MainWindow::on_get_calibration_clicked() {
     int i = ui->image_i->text().toInt();
     int ret;
-    if (i == 3 || i == 4) {
-        ret = ImageProcessing::ConfigFileRead("./information/Hik_settings_1408_512.conf");
-    } else {
-        ret = ImageProcessing::ConfigFileRead("./information/pot_settings4.15.4.15.conf");
-    }
+    //    if (i == 3 || i == 4) {
+    //    ret = ImageProcessing::ConfigFileRead("./information/Hik_settings_1408_512.conf");
+    //    } else {
+    ret = ImageProcessing::ConfigFileRead("./information/pot_settings4.15.4.15.conf");
+    //    }
     if (ret == -1) {
         QMessageBox *box = new QMessageBox(QMessageBox::Warning, "warning",
                                            "Calibration data cannot be obtained!", QMessageBox::Ok);
@@ -564,7 +564,8 @@ void MainWindow::on_capture_rotation_clicked() {
     // 采图定时器初始化
     photo_capture_timer = new QTimer(this);
     photo_capture_timer->setTimerType(Qt::PreciseTimer);
-    connect(photo_capture_timer, SIGNAL(timeout()), this, SLOT(capture_rotation()));  // 定时采图
+    connect(photo_capture_timer, SIGNAL(timeout()), this,
+            SLOT(capture_rotation()));  // 定时采图
     QString capture;
     capture = ui->capture_timer->text();
     photo_capture_timer->start(capture.toInt());
@@ -751,7 +752,7 @@ void MainWindow::capture_linear() {
 
         cv::imwrite("./data/image/" + std::to_string(grabbed_images) + ".bmp", opencvImage);
         // qDebug() <<grabbed_images <<"  "<< ((double)cv::getTickCount() - time_start) /
-        //                                             cv::getTickFrequency() * 1000 << "ms    "<<"
+        //                                             cv::getTickFrequency() * 1000 << "ms "<<"
         //                                             angle "<<angle;
     }
 
@@ -803,7 +804,8 @@ void MainWindow::capture_linear() {
  * @param point_nums
  */
 void image_processing_linear(int i, std::vector<int> &point_nums) {
-    cv::Mat src_image, correct_image, dst_image;  // 原始图像，校正畸变后的图像和提取中心线后的图像
+    cv::Mat src_image, correct_image,
+        dst_image;  // 原始图像，校正畸变后的图像和提取中心线后的图像
     std::vector<cv::Point2f> Pt;  // 激光条纹中心点校正后的像素坐标
     std::vector<float> dir;
     dir.resize(3);

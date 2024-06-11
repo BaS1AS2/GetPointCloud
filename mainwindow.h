@@ -1,27 +1,6 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-// #include <pcl/common/angles.h>
-// #include <pcl/point_cloud.h>
-// #include <pcl/visualization/pcl_visualizer.h>
-// #include <time.h>
-// #include <vtkActor.h>
-// #include <vtkGenericOpenGLRenderWindow.h>
-// #include <vtkImageViewer.h>
-// #include <vtkInteractorStyleImage.h>
-// #include <vtkJPEGReader.h>
-// #include <vtkPolyDataMapper.h>
-// #include <vtkRenderWindowInteractor.h>
-// #include <vtkRenderer.h>
-// #include <vtkSmartPointer.h>
-// #include <vtkSphereSource.h>
-// #include <QCloseEvent>
-// #include <QCoreApplication>
-// #include <QFileDialog>
-// #include <QMessageBox>
-// #include <exception>
-// #include "QVTKOpenGLNativeWidget.h"
-
 #include <QVTKWidget.h>
 #include <pylon/BaslerUniversalInstantCamera.h>
 #include <pylon/PylonIncludes.h>

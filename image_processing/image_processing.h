@@ -9,6 +9,7 @@
 #include <pcl/point_types.h>
 
 #include <QDebug>
+#include <QDir>
 #include <QElapsedTimer>
 #include <fstream>
 #include <iostream>

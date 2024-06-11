@@ -32,6 +32,8 @@
 *.app
 
 *.conf
+*.bmp
+*.pcd
 *.txt
 ui_*.h
 /debug
@@ -40,3 +42,4 @@ Make*
 *.user
 mocinclude.opt
 .qmake.stash
+

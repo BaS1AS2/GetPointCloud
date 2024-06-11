@@ -1,14 +1,14 @@
-﻿#include "mainwindow.h"
+﻿#include <vtkFileOutputWindow.h>
 
 #include <QApplication>
-#include <vtkFileOutputWindow.h>
 #include <QSurfaceFormat>
-#include "QVTKOpenGLNativeWidget.h"
 
-int main(int argc, char *argv[])
-{
+#include "QVTKOpenGLNativeWidget.h"
+#include "mainwindow.h"
+
+int main(int argc, char *argv[]) {
     vtkNew<vtkFileOutputWindow> fileOutputWindow;
-    fileOutputWindow->SetFileName("output.txt");
+    fileOutputWindow->SetFileName("./data/output.txt");
     vtkOutputWindow::SetInstance(fileOutputWindow);
     QSurfaceFormat::setDefaultFormat(QVTKOpenGLNativeWidget::defaultFormat());
 
